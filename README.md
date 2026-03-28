@@ -2,6 +2,10 @@
 
 A full-stack, real-time IoT application designed to track, monitor, and visualize the environmental impact of major Indian cities. This project integrates live data from public weather stations and seamlessly routes it through an enterprise MQTT broker down to a beautiful, glassmorphic React dashboard.
 
+### 🌟 Live Demos
+* **Dashboard (Frontend):** [https://smart-air-pollution-monitor.vercel.app/](https://smart-air-pollution-monitor.vercel.app/)
+* **API Server (Backend):** [https://smart-air-pollution-monitor-backend.onrender.com/api/pollution/current](https://smart-air-pollution-monitor-backend.onrender.com/api/pollution/current)
+
 ---
 
 ## 🎯 Sustainable Development Goals (SDG) Targeted

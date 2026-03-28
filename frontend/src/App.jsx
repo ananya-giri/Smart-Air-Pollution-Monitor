@@ -25,7 +25,8 @@ ChartJS.register(
   Filler
 );
 
-const API_URL = 'http://localhost:5000/api/pollution';
+const API_URL = 'https://smart-air-pollution-monitor-backend.onrender.com/api/pollution';
+
 
 const ALL_CITIES = ['Kolkata', 'Delhi', 'Chennai', 'Mumbai', 'Bangalore', 'Shillong'];
 
@@ -105,7 +106,7 @@ function App() {
   // Determine x-axis labels from the longest history dataset (or first city)
   let labels = [];
   if (historyData[ALL_CITIES[0]] && historyData[ALL_CITIES[0]].length > 0) {
-      labels = historyData[ALL_CITIES[0]].map(d => new Date(d.timestamp).toLocaleTimeString());
+    labels = historyData[ALL_CITIES[0]].map(d => new Date(d.timestamp).toLocaleTimeString());
   }
 
   const chartData = {
@@ -126,13 +127,13 @@ function App() {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-      legend: { 
-        position: 'top', 
-        labels: { 
+      legend: {
+        position: 'top',
+        labels: {
           color: '#f8fafc',
           usePointStyle: true,
           pointStyle: 'circle'
-        } 
+        }
       },
       tooltip: { mode: 'index', intersect: false },
     },
@@ -141,7 +142,7 @@ function App() {
       x: { grid: { display: false }, ticks: { color: '#94a3b8', maxTicksLimit: 8 } }
     },
     animation: {
-        duration: 0
+      duration: 0
     },
     interaction: {
       mode: 'nearest',
@@ -172,10 +173,10 @@ function App() {
 
       <div className="stats-grid">
         {currentData.map(data => (
-          <div 
-            key={data.city} 
+          <div
+            key={data.city}
             className="glass-panel stat-card"
-            style={{ 
+            style={{
               borderLeft: `4px solid ${CITY_COLORS[data.city] || '#38bdf8'}`,
             }}
           >
@@ -189,7 +190,7 @@ function App() {
             <div className="aqi-label" style={{ color: getAqiColor(data.aqi) }}>
               {getAqiLabel(data.aqi)}
             </div>
-            
+
             <div className="details-grid">
               <div className="detail-item">
                 <span className="detail-label">PM2.5 (µg/m³)</span>
@@ -215,7 +216,7 @@ function App() {
               <Line data={chartData} options={chartOptions} />
             ) : (
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
-                  <p>Loading chart data...</p>
+                <p>Loading chart data...</p>
               </div>
             )}
           </div>
@@ -249,16 +250,16 @@ function App() {
 
 function CheckCircle(props) {
   return (
-    <svg 
+    <svg
       {...props}
-      xmlns="http://www.w3.org/2000/svg" 
-      width="24" 
-      height="24" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2" 
-      strokeLinecap="round" 
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
       strokeLinejoin="round"
     >
       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
